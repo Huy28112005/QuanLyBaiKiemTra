@@ -1,10 +1,9 @@
 #pragma once
 #include "BaiKiemTra.h"
-#include "TracNghiem.h"
-#include "TuLuan.h"
 #include <string>
 #include <vector>
 #include <cctype>
+#include "Utility.h"
 
 class TruongHoc
 {
@@ -101,5 +100,17 @@ public:
 			baiKiemTra[i]->xuat();
 			cout << "-----------------" << rows2;
 		}
+	}
+
+	unsigned int demBaiKiemTraTracNghiem() const {
+		if (soLuong == 0) return 0;
+		unsigned int dem = 0;
+		for (unsigned int i = 0; i < soLuong; ++i) {
+			TracNghiem* tn = Utility::toTracNghiem(baiKiemTra[i]);
+			if (tn != nullptr) {
+				++dem;
+			}
+		}
+		return dem;
 	}
 };
