@@ -41,7 +41,7 @@ public:
 			});
 	}
 	TruongHoc& operator=(const TruongHoc& truong) {
-		if (this != nullptr) {
+		if (this != &truong) {
 			clear();
 			soLuong = truong.soLuong;
 			baiKiemTra = new BaiKiemTra * [soLuong];
